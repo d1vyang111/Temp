@@ -20,4 +20,4 @@ jobs:
 
       - name: Trigger Job
         run: |
-          az ml job create --file job.yml --Mlops_meow_grp --mlopsdemo1
+          az ml job create --file job.yml -g Mlops_meow_grp -w mlopsdemo1
