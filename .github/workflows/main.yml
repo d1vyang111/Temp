@@ -1,5 +1,6 @@
 name: Exp2-Prototype
 on: [push]
+
 jobs:
   run-azure-ml:
     runs-on: ubuntu-latest
@@ -15,4 +16,5 @@ jobs:
       - name: Run Job
         run: |
           az extension add -n ml
-          az ml job create --file job.yml --resource-group YOUR_RG --workspace-name YOUR_WORKSPACE
+          # Using your specific workspace and resource group names
+          az ml job create --file job.yml --resource-group MyMLResourceGroup --workspace-name MyFirstWorkspace
