@@ -1,0 +1,18 @@
+name: Exp2-Prototype
+on: [push]
+jobs:
+  run-azure-ml:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Run Job
+        run: |
+          az extension add -n ml
+          az ml job create --file job.yml --resource-group YOUR_RG --workspace-name YOUR_WORKSPACE
